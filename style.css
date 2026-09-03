@@ -1,0 +1,148 @@
+:root {
+    --page-margin: 0;
+    --page-padding: 0 20% 0 20%;
+
+    /* ── Palette — from field-notes §01 (the only stated site palette) ──
+       Near-black ground with a blue bias, not neutral grey. The five state
+       hues are the site's entire colour vocabulary; the UI adds none of its
+       own. All ten hex values below are stated explicitly in the doc. */
+    --bg: #06070A;            /* ground — page background   */
+    --surface: #0E1116;       /* raised surface             */
+    --line: #1B212B;          /* hairline / borders         */
+    --ink: #EEF1F5;           /* primary text               */
+    --muted: #7D8798;         /* labels / mono / secondary  */
+    /* --ink-2 is NOT stated by the doc — derived from the two that are */
+    --ink-2: color-mix(in oklab, var(--ink) 65%, var(--muted));
+
+    /* The five state hues — the field's voice */
+    --state-drift: #8BA3C7;   /* intro                      */
+    --state-sand: #D9A441;    /* Scree                      */
+    --state-signal: #6FE3A8;  /* Latch                      */
+    --state-depth: #4D8FD6;   /* Ocean                      */
+    --state-resolve: #E8E6E1; /* contact                    */
+
+    /* ── Sizing (stated) ─────────────────────────────────────── */
+    --measure: 68ch;          /* prose measure (62–68ch)    */
+
+    color-scheme: dark;
+}
+
+body {
+    margin: var(--page-margin);
+    padding: var(--page-padding);
+    background-color: var(--bg);
+    color: var(--ink);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 1rem 0 1rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+
+    border: 1px solid var(--ink);
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--ink);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    color: var(--ink);
+
+}
+
+.header-line {
+    width: 60%;
+    height: 2px;
+    background-color: var(--ink-2);
+    margin: 0 auto;
+}
+
+#hero {
+    position: relative;   /* makes hero-content position relative to this section */
+    min-height: 80vh;     /* height for the content to be placed within */
+}
+
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--state-drift);
+}
+
+#hero p {
+    font-size: 1.25rem;
+    color: var(--muted);
+}
+
+.hero-content {
+    position: absolute;   
+    left: 2rem;           
+    bottom: 30%; 
+    max-width: 50%;     
+}
+
+:root {
+  --grid-line: color-mix(in oklab, var(--ink) 8%, transparent);
+  --grid-size: 64px;
+}
+
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(to right,  rgba(238, 241, 245, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(238, 241, 245, 0.1) 1px, transparent 1px),
+    linear-gradient(to right,  rgba(238, 241, 245, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(238, 241, 245, 0.2) 1px, transparent 1px);
+  background-size:
+    29px 29px,
+    29px 29px,
+    174px 174px,
+    174px 174px;
+
+  -webkit-mask-image:
+    /* radial-gradient(75% 70% at 50% 50%, #000 0%, transparent 100%), */
+    radial-gradient(75% 70% at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 100%);
+  mask-image:
+    /* radial-gradient(75% 70% at 50% 50%, #000 0%, transparent 100%), */
+    radial-gradient(50% 50% at var(--mx, 50%) var(--my, 50%), #000 0%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+
+
