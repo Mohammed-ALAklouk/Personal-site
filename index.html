@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="grid-bg" aria-hidden="true"></div>
     
     <header>
         <div class="logo">
@@ -21,11 +22,11 @@
             </div>
         </div>
         <nav>
-        <ul>
-            <li><a href="#">CV</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="https://github.com/Mohammed-ALAklouk/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a href="#about">About me</a></li>
+        <ul class="nav-links">
+            <li><a class="header-link" href="#">CV</a></li>
+            <li><a class="header-link" href="#projects">Projects</a></li>
+            <li><a class="header-link" href="https://github.com/Mohammed-ALAklouk/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a class="header-link" href="#about">About me</a></li>
         </ul>
     </nav>
     </header>
@@ -33,14 +34,71 @@
 
     <main>
         <section id="hero">
-            <div class="grid-bg" aria-hidden="true"></div>
             <div class="hero-content">
                 <h1>Welcome to My Portfolio</h1>
                 <p>I am a passionate developer with a love for creating innovative solutions.</p>
             </div>
         </section>
+    
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <div class="project-list">
+                <div class="project scree">
+                    <div class="project-text">
+                        <h3>Scree</h3>
+                        <p>A falling-sand physics simulator in C++20 with raylib, with fully data-driven, hot-reloadable materials.</p>
+                        <div class="project-links">
+                            <a class="btn primary" href="https://mohammed-alaklouk.github.io/Scree/" target="_blank" rel="noopener noreferrer">Play online</a>
+                            <a class="btn" href="https://github.com/Mohammed-ALAklouk/Scree" target="_blank" rel="noopener noreferrer">Visit repo</a>
+                            <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Case study</a>
+                        </div>
+                    </div>
+                    <img class="project-image" src="project1.jpg" alt="Project 1 Screenshot">
+                </div>  
+
+                <div class="project latch">
+                    <div class="project-text">
+                        <h3>Latch</h3>
+                        <p>A grid-based desktop app for building and simulating digital logic circuits. Built in C++ with raylib.</p>
+                        <div class="project-links">
+                            <a class="btn primary" href="https://github.com/Mohammed-ALAklouk/Latch" target="_blank" rel="noopener noreferrer">Visit repo</a>
+                            <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Case study</a>
+                        </div>
+                    </div>
+                    <img class="project-image"  src="project1.jpg" alt="Project 2 Screenshot">
+                </div>  
+
+                <div class="project ocean">
+                    <div class="project-text">
+                        <h3>The Deep Ocean</h3>
+                        <p>A case study on GSAP and scroll based animations where i recreate neal.fun's the deep sea</p>
+                        <div class="project-links">
+                            <a class="btn primary" href="https://mohammed-alaklouk.github.io/The-deep-ocean/" target="_blank" rel="noopener noreferrer">Play online</a>
+                            <a class="btn" href="https://github.com/Mohammed-ALAklouk/The-deep-ocean" target="_blank" rel="noopener noreferrer">Visit repo</a>
+                            <a class="btn" href="https://mohammed-alaklouk.github.io/The-deep-ocean/blog/" target="_blank" rel="noopener noreferrer">Case study</a>
+                        </div>
+                    </div>
+                    <img class="project-image" src="project1.jpg" alt="Project 1 Screenshot">
+                </div>  
+            </div>
+
+        </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a software developer with experience in web development, data analysis, and machine learning. I enjoy solving complex problems and continuously learning new technologies.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>If you would like to get in touch, please reach out via email or connect with me on LinkedIn.</p>
+            <p>I am always open to discussing new opportunities and interesting projects.</p>
+            <div class="contact-links">
+                <a class="btn" href="mailto:moha.alaklouk@gmail.com">Email me (moha.alaklouk@gmail.com)</a>
+                <a class="btn" href="https://www.linkedin.com/in/mohammed-alaklouk-91835b263/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+                <a class="btn" href="https://github.com/Mohammed-ALAklouk" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </section>
     </main>
-    </div>
 </body>
 <script src="script.js"></script>
 </html>

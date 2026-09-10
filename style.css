@@ -1,6 +1,13 @@
 :root {
-    --page-margin: 0;
     --page-padding: 0 20% 0 20%;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2.5rem;
+    --space-6: 4rem;
+    --space-7: 6rem;
+
 
     /* ── Palette — from field-notes §01 (the only stated site palette) ──
        Near-black ground with a blue bias, not neutral grey. The five state
@@ -22,103 +29,104 @@
     --state-resolve: #E8E6E1; /* contact                    */
 
     /* ── Sizing (stated) ─────────────────────────────────────── */
-    --measure: 68ch;          /* prose measure (62–68ch)    */
+    --measure: 60ch; 
 
     color-scheme: dark;
+    --grid-line: color-mix(in oklab, var(--ink) 8%, transparent);
+    --grid-size: 64px;
+
+    --text-ratio: 1.3333;
+    --text-size-1: 1.5rem;
+    --text-size-2: 2rem;
+    --text-size-3: 3rem;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --border-radius: 4px;
 }
 
+/* ── Base styles ──────────────────────────────────────────────── */
 body {
-    margin: var(--page-margin);
+    margin: 0;
     padding: var(--page-padding);
     background-color: var(--bg);
     color: var(--ink);
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;  
+    display: flow-root;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    padding: 1rem 0 1rem 0;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-
-    border: 1px solid var(--ink);
-}
-
-.logo-text {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--ink);
-}
-
-nav ul {
-    list-style-type: none;
+h1, h2, h3 {
     margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-    color: var(--ink);
-
-}
-
-.header-line {
-    width: 60%;
-    height: 2px;
-    background-color: var(--ink-2);
-    margin: 0 auto;
-}
-
-#hero {
-    position: relative;   /* makes hero-content position relative to this section */
-    min-height: 80vh;     /* height for the content to be placed within */
-}
-
-#hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", Menlo, Consolas, monospace;
     color: var(--state-drift);
 }
 
-#hero p {
-    font-size: 1.25rem;
-    color: var(--muted);
+h1 {
+    font-size: var(--text-size-3);
+    margin-bottom: var(--space-4);
+    font-weight: var(--font-weight-bold);
 }
 
-.hero-content {
-    position: absolute;   
-    left: 2rem;           
-    bottom: 30%; 
-    max-width: 50%;     
+h2 {
+    font-size: var(--text-size-2);
+    margin-bottom: var(--space-4);
+    font-weight: var(--font-weight-bold);
 }
 
-:root {
-  --grid-line: color-mix(in oklab, var(--ink) 8%, transparent);
-  --grid-size: 64px;
+h3 {
+    font-size: var(--text-size-1);
+    margin-bottom: var(--space-3);  
+    font-weight: var(--font-weight-semibold);
 }
 
+p {
+    margin: 0;
+    font-size: calc(var(--text-size-1) / var(--text-ratio));
+    line-height: 1.5;
+    color: var(--ink-2);
+    font-weight: var(--font-weight-normal);
+}
+
+p + p { margin-top: var(--space-3); }
+
+section {   
+    margin-bottom: var(--space-6);
+}
+
+.btn {
+    color: var(--state-drift);
+    text-decoration: none;
+
+    padding: var(--space-2);
+    border: 1px solid var(--state-drift);
+    border-radius: var(--border-radius);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    font-weight: var(--font-weight-medium);
+}
+
+.btn:hover {
+    background-color: var(--state-drift);
+    color: var(--surface);
+}
+
+.btn.primary {
+    background-color: var(--state-drift);
+    color: var(--surface);
+}
+
+.btn.primary:hover {
+    background-color: transparent;
+    color: var(--state-drift);
+}
+
+
+/* ── Grid background styles ───────────────────────────────────── */
 .grid-bg {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
@@ -144,5 +152,151 @@ nav ul li a {
   mask-repeat: no-repeat;
 }
 
+/* ── Header styles ───────────────────────────────────────────── */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+}
 
+.logo {
+    display: flex;
+    align-items: center;
+}
 
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: var(--space-2);
+
+    border: 1px solid var(--ink);
+}
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--ink);
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.header-link {
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    transition: color 0.3s ease;
+    color: var(--ink);
+}
+
+.header-link:hover {
+    color: var(--state-drift);
+}
+
+.header-line {
+    width: 60%;
+    height: 2px;
+    background-color: var(--ink-2);
+    margin: 0 auto;
+}
+
+/* ── Hero section styles ─────────────────────────────────────── */
+
+#hero {
+    position: relative;   /* makes hero-content position relative to this section */
+    min-height: 80vh;     /* height for the content to be placed within */
+}
+
+.hero-content {
+    position: absolute;   
+    left: var(--space-6);           
+    bottom: 30%; 
+    max-width: 50%;     
+}
+
+/* ── Project section styles ──────────────────────────────────── */
+.project {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding: var(--space-3);
+    border-radius: 8px;
+    z-index: 1;
+
+    --accent-color: var(--state-drift);
+}
+
+.project-text {
+    flex: 1;
+}
+
+.project-image {
+    width: 200px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background-color: var(--surface);
+    border-radius: var(--border-radius);
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.project-links, .contact-links {
+    margin-top: var(--space-4);
+    display: flex;
+    gap: var(--space-2);
+}
+
+.project h3 {
+    color: var(--accent-color);
+}
+
+.project p {
+    max-width: var(--measure);
+}
+
+.project .btn {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.project .btn.primary {
+    background-color: var(--accent-color);
+    color: var(--surface);
+}
+
+.project .btn.primary:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.project .btn:hover {
+    background-color: var(--accent-color);
+    color: var(--surface);
+}
+
+.project.scree {
+    --accent-color: var(--state-sand);
+}
+
+.project.latch {
+    --accent-color: var(--state-signal);
+}
+
+.project.ocean {
+    --accent-color: var(--state-depth);
+}
