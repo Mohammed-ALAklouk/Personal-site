@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+# Instructions
+
+Do not wirte any code unless instructed.
+
 ## Overview
 
 A static personal portfolio site — plain HTML/CSS/JS, no build tooling, no package manager, no framework. Three files make up the whole site: `index.html`, `style.css`, `script.js`.
@@ -19,6 +23,7 @@ python -m http.server 5501
 ## Architecture
 
 **`style.css`** defines a small design-token system in `:root`:
+
 - Spacing scale: `--space-1` through `--space-7`.
 - Color palette: `--bg`, `--surface`, `--line`, `--ink`, `--muted` are the only "stated" colors (see the comment above the palette block); `--ink-2` is derived from them via `color-mix`. Don't add new base colors outside this set — extend via `color-mix` the way `--ink-2` does.
 - Five "state" hues (`--state-drift`, `--state-sand`, `--state-signal`, `--state-depth`, `--state-resolve`) are the entire accent-color vocabulary. Each `.project` block sets a local `--accent-color` custom property to one of these (see `.project.scree`, `.project.latch`, `.project.ocean`), and everything inside that project (`h3`, links, buttons) inherits from `--accent-color` rather than hardcoding a hue. Follow this pattern when adding a new project or section that needs its own accent.
