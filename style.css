@@ -49,6 +49,10 @@
 }
 
 /* ── Base styles ──────────────────────────────────────────────── */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: var(--page-padding);
@@ -98,10 +102,13 @@ section {
 }
 
 .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--state-drift);
     text-decoration: none;
-
-    padding: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    min-height: 2.75rem;
     border: 1px solid var(--state-drift);
     border-radius: var(--border-radius);
     transition: color 0.3s ease, background-color 0.3s ease;
