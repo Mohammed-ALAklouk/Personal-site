@@ -23,10 +23,13 @@
         </div>
         <nav>
         <ul class="nav-links">
-            <li><a class="header-link" href="#">CV</a></li>
             <li><a class="header-link" href="#projects">Projects</a></li>
+            <li><a class="header-link" href="#background">Background</a></li>
+            <li><a class="header-link" href="#skills">Skills</a></li>
+            <li><a class="header-link" href="#about">About</a></li>
+            <li><a class="header-link" href="#contact">Contact</a></li>
+            <li><a class="header-link" href="#">CV</a></li>
             <li><a class="header-link" href="https://github.com/Mohammed-ALAklouk/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-            <li><a class="header-link" href="#about">About me</a></li>
         </ul>
     </nav>
     </header>
@@ -35,8 +38,9 @@
     <main>
         <section id="hero">
             <div class="hero-content">
-                <h1>Welcome to My Portfolio</h1>
-                <p>I am a passionate developer with a love for creating innovative solutions.</p>
+                <p>Computer engineering · Gebze Technical University</p>
+                <h1>I build simulations and systems in C++.</h1>
+                <p>Falling-sand physics, digital logic circuits, scroll-driven web experiments. I like understanding how things work deeply enough to rebuild them.</p>
             </div>
         </section>
     
@@ -47,7 +51,26 @@
                 <div class="project scree">
                     <div class="project-text">
                         <h3>Scree</h3>
-                        <p>A falling-sand physics simulator in C++20 with raylib, with fully data-driven, hot-reloadable materials.</p>
+                        <p>A falling-sand physics simulator in C++20 and raylib where every pixel is an independent particle which reacts with the materials around it. It runs in the browser via WebAssembly.</p>
+                        <ul>
+                            <li>30+ materials that spread, burn and dissolve into one another through a tag based reaction system</li>
+                            <li>Materials, reactions and physics are defined in editable JSON, and everything can be hot reloaded</li>
+                            <li>You can create, edit and delete materials in-app</li>
+                            <li>You can import and export your own materials and canvases</li>
+                            <li>Bloom lighting for glowing materials</li>
+                        </ul>
+
+                        <h4>Tech stack</h4>
+                        <ul>
+                            <li>C++20</li>
+                            <li>raylib</li>
+                            <li>Dear ImGui</li>
+                            <li>nlohmann/json</li>
+                            <li>CMake</li>
+                            <li>Catch2</li>
+                            <li>Emscripten/WASM</li>
+                        </ul>
+
                         <div class="project-links">
                             <a class="btn primary" href="https://mohammed-alaklouk.github.io/Scree/" target="_blank" rel="noopener noreferrer">Play online</a>
                             <a class="btn" href="https://github.com/Mohammed-ALAklouk/Scree" target="_blank" rel="noopener noreferrer">Visit repo</a>
@@ -60,7 +83,26 @@
                 <div class="project latch">
                     <div class="project-text">
                         <h3>Latch</h3>
-                        <p>A grid-based desktop app for building and simulating digital logic circuits. Built in C++ with raylib.</p>
+                        <p>A logic-gate sandbox and simulator in C++20, raylib and Dear ImGui. You can place gates on an infinite grid, wire them together and simulate the circuit with one-tick propagation delay per gate.</p>
+                        <ul>
+                            <li>Three logic values: LOW, HIGH and UNDEFINED for floating inputs</li>
+                            <li>Nine basic gates: AND, OR, XOR and their complements, NOT, a toggle switch and an LED</li>
+                            <li>Wires are graphs of nodes and segments which react to node and segment deletion</li>
+                            <li>Wires auto-route when extended and reroute when a gate or group of gates is moved</li>
+                            <li>Build multiple circuits in the same instance through sheets with a shared component palette and clipboard</li>
+                            <li>Canvas selection, copy/paste, delete, and full undo/redo</li>
+                            <li>A headless simulation core inside its own static library tested with Catch2</li>
+                        </ul>
+
+                        <h4>Tech stack</h4>
+                        <ul>
+                            <li>C++20</li>
+                            <li>raylib</li>
+                            <li>Dear ImGui</li>
+                            <li>CMake</li>
+                            <li>Catch2</li>
+                        </ul>
+
                         <div class="project-links">
                             <a class="btn primary" href="https://github.com/Mohammed-ALAklouk/Latch" target="_blank" rel="noopener noreferrer">Visit repo</a>
                             <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Case study</a>
@@ -72,7 +114,7 @@
                 <div class="project ocean">
                     <div class="project-text">
                         <h3>The Deep Ocean</h3>
-                        <p>A case study on GSAP and scroll based animations where i recreate neal.fun's the deep sea</p>
+                        <p>A case study on GSAP and scroll based animations where I recreate neal.fun's The Deep Sea</p>
                         <div class="project-links">
                             <a class="btn primary" href="https://mohammed-alaklouk.github.io/The-deep-ocean/" target="_blank" rel="noopener noreferrer">Play online</a>
                             <a class="btn" href="https://github.com/Mohammed-ALAklouk/The-deep-ocean" target="_blank" rel="noopener noreferrer">Visit repo</a>
@@ -83,20 +125,90 @@
                 </div>
             </div>
 
+
         </section>
+
+        <section id="background">
+            <h2>Background</h2>
+            <dl class="facts">
+                <dt>Degree</dt>
+                <dd>BSc Computer Engineering, Gebze Technical University</dd>
+                
+                <dt>Started University</dt>
+                <dd>September 2024</dd>
+                
+                <dt>Expected graduation date</dt>
+                <dd>July 2028</dd>
+                
+                
+                <dt>GPA</dt>
+                <dd>3.55</dd>
+                
+                <dt>Languages</dt>
+                <dd>Arabic - Native, English - Fluent, Turkish - Conversational</dd>
+            </dl>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div>
+                <h3>Shipped with</h3>
+                <h4>Systems</h4>
+                <ul>
+                    <li>C++ 17/20</li>
+                    <li>Emscripten (C++ to web)</li>
+                    <li>raylib</li>
+                    <li>CMake</li>
+                </ul>
+
+                <h4>Web</h4>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                    <li>GSAP</li>
+                    <li>Lenis</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Familiar with</h3>
+                <ul>
+                    <li>OpenGL</li>
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>WordPress</li>
+                    <li>MongoDB</li>
+                </ul>
+            </div>
+        </section>
+
+        
+
+        <section></section>
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a software developer with experience in web development, data analysis, and machine learning. I enjoy solving complex problems and continuously learning new technologies.</p>
+            <p>I am a third year computer student at Gebze Technical University. I like to deeply understand how things work, which often leads me to creating interactive simulations for them.</p>
+
+            <p>I always priortize system design. I structure my projects to be flexible and easy to extend as they grow not just making it work once</p>
+
+            <p>I mainly work in C++. I design my systems to be reliable, extendable and efficient. I keep data separate from the code. Instead of serializing state, I store it in a JSON format. This makes it easy for users to edit and for the program to read. In Scree this allowed to define and even generate new materials with AI, since the format is simple enough to describe. I will be using the same approach for Latch as well.</p>
+
+            <p>I also enjoy tinkering with interactive web technologies like GSAP, Lenis and Three.js to create sites that introduce new ways to interact with web pages such as scroll driven animations and interactions as well as 3D sites</p>
+
         </section>
         <section id="contact">
-            <h2>Contact</h2>
-            <p>If you would like to get in touch, please reach out via email or connect with me on LinkedIn.</p>
-            <p>I am always open to discussing new opportunities and interesting projects.</p>
-            <div class="contact-links">
-                <a class="btn" href="mailto:moha.alaklouk@gmail.com">Email me (moha.alaklouk@gmail.com)</a>
-                <a class="btn" href="https://www.linkedin.com/in/mohammed-alaklouk-91835b263/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
-                <a class="btn" href="https://github.com/Mohammed-ALAklouk" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <h2>Say Hello</h2>
+            <p>Open to simulation, systems and interactive web work, or just chatting about interesting technologies.</p>
+
+            <a class="link email" href="mailto:moha.alaklouk@gmail.com">moha.alaklouk@gmail.com</a>
+            <div>
+                
             </div>
+            <a class="link" href="https://www.linkedin.com/in/mohammed-alaklouk-91835b263/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="link" href="https://github.com/Mohammed-ALAklouk" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="link" href="#">CV</a>
+
         </section>
     </main>
 </body>

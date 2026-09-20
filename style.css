@@ -36,6 +36,7 @@
     --grid-size: 64px;
 
     --text-ratio: 1.3333;
+    --text-size-0: 1.125rem;
     --text-size-1: 1.5rem;
     --text-size-2: 2rem;
     --text-size-3: 3rem;
@@ -304,4 +305,55 @@ header {
 
 .project.ocean {
     --accent-color: var(--state-depth);
+}
+
+/* ── Background section styles ──────────────────────────────────── */
+.facts {
+    display: grid;
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: var(--space-2) var(--space-4);
+    margin: var(--space-4) 0 0;
+}
+
+dt {
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", Menlo, Consolas, monospace;;
+    font-size:  calc(var(--text-size-0) / var(--text-ratio));
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+dd {
+    margin: 0;
+    color: var(--ink-2);
+    font-size:  calc(var(--text-size-1) / var(--text-ratio));
+    line-height: 1.6;
+}
+
+
+.link{
+    color: var(--ink-2);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    border-bottom: 1px solid var(--ink-2);
+    padding-bottom: calc(var(--space-1) / 2);
+}
+
+.link:hover {
+    color: var(--state-drift);
+    border-bottom: 1px solid var(--state-drift);
+}
+
+.email{
+    font-weight: var(--font-weight-medium);
+    font-size:  calc(var(--text-size-2) / var(--text-ratio));
+    letter-spacing: normal!important;
+    text-transform: none!important;
 }
