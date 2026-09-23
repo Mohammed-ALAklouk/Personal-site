@@ -1,8 +1,8 @@
 :root {
     
     --bg: #0b0b0a;
-    --bg2: #121211;
-    --bg3: #1a1a18;
+    --bg-2: #121211;
+    --bg-3: #1a1a18;
     --fg: #ecebe4;
     --fg-2: #bdbbb3;
     --muted: #8f8d85;
@@ -283,7 +283,7 @@ header {
     width: 200px;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    background-color: var(--bg2);
+    background-color: var(--bg-2);
     border-radius: var(--radius-s);
 }
 
@@ -314,7 +314,7 @@ header {
 
 .project .btn.primary {
     background-color: var(--accent);
-    color: var(--bg2);
+    color: var(--bg-2);
 }
 
 .project .btn.primary:hover {
@@ -324,7 +324,7 @@ header {
 
 .project .btn:hover {
     background-color: var(--accent);
-    color: var(--bg2);
+    color: var(--bg-2);
 }
 
 .project.scree {

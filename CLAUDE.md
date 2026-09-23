@@ -32,7 +32,7 @@ python -m http.server 5501
 
 **Colour.** A warm-black neutral ramp plus a small set of accents, and nothing else:
 
-- Neutrals: `--bg`, `--bg2`, `--bg3`, `--fg`, `--fg-2`, `--muted`.
+- Neutrals: `--bg`, `--bg-2`, `--bg-3`, `--fg`, `--fg-2`, `--muted`.
 - Lines: `--line` and `--line-strong` are `--fg` at 12% / 24% opacity, not separate greys. Structure comes from 1px lines at these two strengths, not from cards and backgrounds.
 - Accents: `--sand` is the site accent (selection, focus rings, hovers). `--scree`, `--latch`, `--ocean` are one per project. Don't add new base colours; derive variants with `color-mix()`.
 - `--accent` is the per-component accent. It defaults to `--scree` in `:root`; `.project` resets it to `--sand`, and `.project.scree` / `.latch` / `.ocean` set it to their project colour. Everything inside a project (h3, `.btn`) reads `var(--accent)` rather than a hardcoded hue. Follow this pattern for anything that needs its own accent.
