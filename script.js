@@ -12,6 +12,8 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     if (!target) return;
     e.preventDefault();
     lenis.scrollTo(target);
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
   });
 });
 

@@ -143,6 +143,10 @@ h1, h2, h3, h4, h5, h6, dl, dd, figure, p {
   border-radius: var(--radius-s);
 }
 
+section:focus-visible {
+  outline: none;
+}
+
 .skip {
   position: fixed;
   top: 8px;
