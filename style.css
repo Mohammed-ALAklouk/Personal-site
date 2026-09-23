@@ -1,8 +1,8 @@
 :root {
     
     --bg: #0b0b0a;
-    --bg-2: #121211;
-    --bg-3: #1a1a18;
+    --bg2: #121211;
+    --bg3: #1a1a18;
     --fg: #ecebe4;
     --fg-2: #bdbbb3;
     --muted: #8f8d85;
@@ -19,7 +19,6 @@
     --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
     --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
     
-    --radius: 14px;
     --nav-h: 64px;
 
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -41,13 +40,9 @@
     --pad: var(--space-m);
     --gap: var(--space-s);
 
-    
-
     --measure: 60ch; 
 
-    --grid-line: color-mix(in oklab, var(--fg) 8%, transparent);
-    --grid-size: 64px;
-
+    --text-xs:  0.75rem;
     --text-s:   clamp(1rem,    0.96rem + 0.19vw, 1.125rem); /* 16 →  18px */
     --text-m:   clamp(1.125rem, 0.99rem + 0.56vw, 1.5rem);  /* 18 →  24px */
     --text-l:   clamp(1.25rem, 0.9rem  + 1.5vw,  2.25rem);  /* 20 →  36px */
@@ -61,95 +56,82 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
 
-    --border-radius: 4px; 
+    --radius-s: 4px; 
+    --radius-m: 8px;
+    --radius: 14px;
 }
 
 /* ── Base styles ──────────────────────────────────────────────── */
-* {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    padding: 0 var(--pad);
-    background-color: var(--bg);
+    padding: 0 var(--pad); /* remove when each section has its own padding */
+
+    background: var(--bg);
     color: var(--fg);
-    position: relative;
+    
     font-family: var(--font-display);  
-    display: flow-root;
+    font-size: var(--text-s);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    overflow-x: clip;
+
+    position: relative; /* for grid background, remove when the grid doesnt affect the hero */
 }
 
 em {
     font-family: var(--font-serif);
-}
-
-h1, h2, h3 {
-    margin: 0;
-    font-family: var(--font-display);
-    color: var(--sand);
-}
-
-h1 {
-    font-size: var(--text-xl);
-    margin-bottom: var(--space-4);
-    font-weight: var(--font-weight-bold);
-}
-
-h2 {
-    font-size: var(--text-l);
-    margin-bottom: var(--space-4);
-    font-weight: var(--font-weight-bold);
-}
-
-h3 {
-    font-size: var(--text-m);
-    margin-bottom: var(--space-3);  
-    font-weight: var(--font-weight-semibold);
-}
-
-p {
-    margin: 0;
-    font-size: var(--text-m);
-    line-height: 1.5;
-    color: var(--fg-2);
     font-weight: var(--font-weight-normal);
 }
 
-p + p { margin-top: var(--space-3); }
-
-section {   
-    margin-bottom: var(--space-6);
+.label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
 
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--sand);
+a { 
+    color: inherit; 
     text-decoration: none;
-    padding: var(--space-2) var(--space-4);
-    min-height: 2.75rem;
-    border: 1px solid var(--sand);
-    border-radius: var(--border-radius);
-    transition: color 0.3s ease, background-color 0.3s ease;
-    font-weight: var(--font-weight-medium);
 }
 
-.btn:hover {
-    background-color: var(--sand);
-    color: var(--bg2);
+button { 
+    font: inherit; 
+    color: inherit;
+     cursor: pointer;
 }
 
-.btn.primary {
-    background-color: var(--sand);
-    color: var(--bg2);
+img, video, canvas {
+    display: block;
+    max-width: 100%;
 }
 
-.btn.primary:hover {
-    background-color: transparent;
-    color: var(--sand);
+ul, ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
+h1, h2, h3, h4, h5, h6, dl, dd, figure, p {
+    margin: 0;
+    padding: 0;
+}
+
+::selection { background: var(--sand); color: var(--bg); }
+
+:focus-visible {
+  outline: 2px solid var(--sand);
+  outline-offset: 3px;
+  border-radius: var(--radius-s);
+}
 
 /* ── Grid background styles ───────────────────────────────────── */
 .grid-bg {
@@ -256,7 +238,7 @@ header {
     width: 100%;
     flex-direction: row;
     padding: var(--pad);
-    border-radius: 8px;
+    border-radius: var(--radius-m);
     z-index: 1;
 
     --accent: var(--sand);
@@ -271,7 +253,7 @@ header {
     aspect-ratio: 4 / 3;
     object-fit: cover;
     background-color: var(--bg2);
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-s);
 }
 
 .project-list {
@@ -283,7 +265,7 @@ header {
 .project-links, .contact-links {
     margin-top: var(--gap);
     display: flex;
-    gap: var(--space-2);
+    gap: var(--space-2xs);
 }
 
 .project h3 {
@@ -330,13 +312,13 @@ header {
 .facts {
     display: grid;
     grid-template-columns: 9rem minmax(0, 1fr);
-    gap: var(--space-2) var(--space-4);
-    margin: var(--space-4) 0 0;
+    gap: var(--space-2xs) var(--space-s);
+    margin: var(--space-s) 0 0;
 }
 
 dt {
     color: var(--muted);
-    font-family: ui-monospace, "SF Mono", "Cascadia Code", "Segoe UI Mono", "Roboto Mono", Menlo, Consolas, monospace;;
+    font-family: var(--font-mono);
     font-size:  var(--text-s);
     text-transform: uppercase;
     letter-spacing: 0.08rem;
@@ -356,13 +338,13 @@ dd {
 
 .link{
     color: var(--fg-2);
-    font-size: 11px;
+    font-size: var(--text-xs);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     text-decoration: none;
 
     border-bottom: 1px solid var(--fg-2);
-    padding-bottom: calc(var(--space-1) / 2);
+    padding-bottom: calc(var(--space-3xs) / 2);
 }
 
 .link:hover {
