@@ -143,6 +143,23 @@ h1, h2, h3, h4, h5, h6, dl, dd, figure, p {
   border-radius: var(--radius-s);
 }
 
+.skip {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 200;               /* above the nav */
+  transform: translateY(-200%); /* pushed up, out of view */
+}
+.skip:focus { 
+    transform: none;
+    background: var(--fg);
+    color: var(--bg);
+    border-radius: 1000px;
+    padding: var(--space-2xs) var(--space-xs);
+    border: 1px solid var(--fg);
+} /* back in view */
+
+
 /* ── Grid background styles ───────────────────────────────────── */
 .grid-bg {
   position: absolute;
