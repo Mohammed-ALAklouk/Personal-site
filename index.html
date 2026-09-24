@@ -14,7 +14,6 @@
 <body>
     <div class="grid-bg" aria-hidden="true"></div>
     
-
     <a href="#projects" class="skip">Skip to projects</a>
     <header>
         <div class="logo">
@@ -41,19 +40,23 @@
     </nav>
     </header>
     <div class="header-line"></div>
-
+    
     <main>
+    
         <section id="hero">
             <div class="hero-content">
-                <p>Computer engineering · Gebze Technical University</p>
-                <h1>I build simulations and systems in C++.</h1>
-                <p>Falling-sand physics, digital logic circuits, scroll-driven web experiments. I like understanding how things work deeply enough to rebuild them.</p>
+                    <p>Computer engineering · Gebze Technical University</p>
+                    <h1>I build simulations and systems in C++.</h1>
+                    <p>Falling-sand physics, digital logic circuits, scroll-driven web experiments. I like understanding how things work deeply enough to rebuild them.</p>
             </div>
         </section>
+        
+        <section class="section" id="projects">
+            <div class="section__head">
+                <p class="label">Selected projects</p>
+                <h2 class="section__title">Projects</h2>
+            </div>
     
-        <section id="projects">
-            <h2>Projects</h2>
-
             <div class="project-list">
                 <div class="project scree">
                     <div class="project-text">
@@ -66,7 +69,7 @@
                             <li>You can import and export your own materials and canvases</li>
                             <li>Bloom lighting for glowing materials</li>
                         </ul>
-
+    
                         <h4>Tech stack</h4>
                         <ul>
                             <li>C++20</li>
@@ -77,7 +80,7 @@
                             <li>Catch2</li>
                             <li>Emscripten/WASM</li>
                         </ul>
-
+    
                         <div class="project-links">
                             <a class="btn primary" href="https://mohammed-alaklouk.github.io/Scree/" target="_blank" rel="noopener noreferrer">Play online</a>
                             <a class="btn" href="https://github.com/Mohammed-ALAklouk/Scree" target="_blank" rel="noopener noreferrer">Visit repo</a>
@@ -86,7 +89,7 @@
                     </div>
                     <img class="project-image" src="assets/media/scree-poster.webp" alt="Scree falling-sand simulator demo: fire, sand and lava reacting on the grid">
                 </div>
-
+    
                 <div class="project latch">
                     <div class="project-text">
                         <h3>Latch</h3>
@@ -100,7 +103,7 @@
                             <li>Canvas selection, copy/paste, delete, and full undo/redo</li>
                             <li>A headless simulation core inside its own static library tested with Catch2</li>
                         </ul>
-
+    
                         <h4>Tech stack</h4>
                         <ul>
                             <li>C++20</li>
@@ -109,7 +112,7 @@
                             <li>CMake</li>
                             <li>Catch2</li>
                         </ul>
-
+    
                         <div class="project-links">
                             <a class="btn primary" href="https://github.com/Mohammed-ALAklouk/Latch" target="_blank" rel="noopener noreferrer">Visit repo</a>
                             <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Case study</a>
@@ -117,7 +120,7 @@
                     </div>
                     <img class="project-image" src="assets/media/latch.webp" alt="Latch desktop app showing a full adder circuit built from XOR and AND gates, with the component palette, sheets and simulation panels">
                 </div>  
-
+    
                 <div class="project ocean">
                     <div class="project-text">
                         <h3>The Deep Ocean</h3>
@@ -130,7 +133,7 @@
                             <li>Quality of life features like an auto-scroll tour, a zone nav bar and reduced-motion support</li>
                             <li>GSAP ScrollTrigger and Lenis smooth scrolling working together, including on touch devices</li>
                         </ul>
-
+    
                         <h4>Tech stack</h4>
                         <ul>
                             <li>HTML, CSS, JavaScript</li>
@@ -139,7 +142,7 @@
                             <li>Canvas 2D</li>
                             <li>GitHub Pages</li>
                         </ul>
-
+    
                         <div class="project-links">
                             <a class="btn primary" href="https://mohammed-alaklouk.github.io/The-deep-ocean/" target="_blank" rel="noopener noreferrer">Play online</a>
                             <a class="btn" href="https://github.com/Mohammed-ALAklouk/The-deep-ocean" target="_blank" rel="noopener noreferrer">Visit repo</a>
@@ -149,12 +152,15 @@
                     <img class="project-image" src="assets/media/ocean-poster.webp" alt="The Deep Ocean scroll site: sunset sky over waves with a buoy">
                 </div>
             </div>
-
-
+    
+    
         </section>
-
-        <section id="background">
-            <h2>Background</h2>
+        
+        <section class="section" id="background">
+            <div class="section__head">
+                <p class="label"> Who I am</p>
+                <h2 class="section__title">Background</h2>
+            </div>
             <dl class="facts">
                 <dt>Degree</dt>
                 <dd>BSc Computer Engineering, Gebze Technical University</dd>
@@ -173,9 +179,9 @@
                 <dd>Arabic - Native, English - Fluent, Turkish - Conversational</dd>
             </dl>
         </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
+        
+        <section class="section" id="skills">
+            <h2 class="section__title">Skills</h2>
             <div>
                 <h3>Shipped with</h3>
                 <h4>Systems</h4>
@@ -185,7 +191,7 @@
                     <li>raylib</li>
                     <li>CMake</li>
                 </ul>
-
+    
                 <h4>Web</h4>
                 <ul>
                     <li>HTML</li>
@@ -195,7 +201,7 @@
                     <li>Lenis</li>
                 </ul>
             </div>
-
+    
             <div>
                 <h3>Familiar with</h3>
                 <ul>
@@ -207,25 +213,26 @@
                 </ul>
             </div>
         </section>
-
         
-
-        <section></section>
-        <section id="about">
-            <h2>About Me</h2>
+        <section class="section" id="about">
+            <h2 class="section__title">About Me</h2>
             <p>I am a third year computer student at Gebze Technical University. I like to deeply understand how things work, which often leads me to creating interactive simulations for them.</p>
-
+    
             <p>I always prioritize system design. I structure my projects to be flexible and easy to extend as they grow, not just to make them work once.</p>
-
+    
             <p>I mainly work in C++. I design my systems to be reliable, extendable and efficient. I keep data separate from the code. Instead of serializing state, I store it in a JSON format. This makes it easy for users to edit and for the program to read. In Scree this let me define materials as data and even generate new ones with AI, since the format is simple enough to describe. I will be using the same approach for Latch as well.</p>
-
+    
             <p>I also enjoy tinkering with interactive web technologies like GSAP, Lenis and Three.js to create sites that introduce new ways to interact with web pages such as scroll driven animations and interactions as well as 3D sites</p>
-
+    
         </section>
-        <section id="contact">
-            <h2>Say Hello</h2>
+        
+        <section class="section" id="contact">
+            <div class="section__head">
+                <p class="label">Contact</p>
+                <h2 class="section__title">Say Hello</h2>
+            </div>
             <p>Open to simulation, systems and interactive web work, or just chatting about interesting technologies.</p>
-
+    
             <a class="link email" href="mailto:moha.alaklouk@gmail.com">moha.alaklouk@gmail.com</a>
             <div>
                 
@@ -233,9 +240,10 @@
             <a class="link" href="https://www.linkedin.com/in/mohammed-alaklouk-91835b263/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="link" href="https://github.com/Mohammed-ALAklouk" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a class="link" href="#">CV</a>
-
+    
         </section>
     </main>
+
 </body>
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="script.js"></script>

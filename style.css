@@ -68,7 +68,6 @@
 
 body {
     margin: 0;
-    padding: 0 var(--pad); /* remove when each section has its own padding */
 
     background: var(--bg);
     color: var(--fg);
@@ -163,6 +162,28 @@ section:focus-visible {
     border: 1px solid var(--fg);
 } /* back in view */
 
+
+/* __ Section styles ______________________________________________________ */
+.section {
+    position: relative; /* for grid background, remove when the grid doesnt affect the hero */
+    padding: var(--space-3xl) var(--pad) 0
+}
+
+.section__title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-semibold);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+}
+
+.section__head{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    margin-bottom: var(--space-2xl);
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: var(--space-s);
+}
 
 /* ── Grid background styles ───────────────────────────────────── */
 .grid-bg {
