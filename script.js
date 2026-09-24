@@ -38,3 +38,26 @@ document.addEventListener('scroll', (e) => {
     scroll = window.scrollY;
     updateMousePosition();
 });
+
+const clocks = document.querySelectorAll('.js-clock');
+
+const fmt = new Intl.DateTimeFormat("en-GB", {
+  timeZone: "Europe/Istanbul",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+});
+
+const updateClock = () => {
+  const text = fmt.format(new Date());
+  clocks.forEach((element) => {
+    element.textContent = text;
+  });
+};
+
+// Update the clock on page load
+updateClock();
+
+// Update the clock every 15 seconds 
+setInterval(updateClock, 15000);
+

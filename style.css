@@ -42,7 +42,7 @@
 
     --measure: 60ch; 
 
-    --text-xs:  0.75rem;
+    --text-xs:  0.72rem;
     --text-s:   clamp(1rem,    0.96rem + 0.19vw, 1.125rem); /* 16 →  18px */
     --text-m:   clamp(1.125rem, 0.99rem + 0.56vw, 1.5rem);  /* 18 →  24px */
     --text-l:   clamp(1.25rem, 0.9rem  + 1.5vw,  2.25rem);  /* 20 →  36px */
@@ -212,38 +212,47 @@ section:focus-visible {
 }
 
 /* ── Header styles ───────────────────────────────────────────── */
-header {
-    display: flex;
-    justify-content: space-between;
+.nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: var(--gap);
     height: var(--nav-h);
+    padding: 0 var(--pad);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
 }
 
-.logo {
-    display: flex;
+.nav__brand {
+    display: inline-flex;
     align-items: center;
-}
-
-.logo-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: var(--gap);
-
-    border: 1px solid var(--fg);
-}
-
-.logo-text {
-    font-size: 1.2rem;
+    justify-self: start;
+    gap: 10px;
+    letter-spacing: -0.01em;
+    font-size: var(--text-s);
     font-weight: var(--font-weight-bold);
+    color: var(--fg);
+    white-space: nowrap;
+}
+
+.nav__mark {
+    width: 12px;
+    height: 12px;
+    background: var(--sand);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.nav__clock time {
     color: var(--fg);
 }
 
-.nav-links {
+.nav__menu {
+    justify-self: end;
+}
+
+.nav__links {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -252,22 +261,25 @@ header {
     gap: var(--gap);
 }
 
-.header-link {
-    text-decoration: none;
-    font-weight: var(--font-weight-bold);
-    transition: color 0.3s ease;
-    color: var(--fg);
+.nav__link {
+    font-weight: var(--font-weight-medium);
 }
 
-.header-link:hover {
-    color: var(--sand);
+.nav__link:after {
+    width: 100%;
+    height: 1px;
+    content: "";
+    display: block;
+    background-color: var(--fg);
+
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--ease-out);
 }
 
-.header-line {
-    width: 60%;
-    height: 2px;
-    background-color: var(--fg-2);
-    margin: 0 auto;
+.nav__link:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* ── Hero section styles ─────────────────────────────────────── */
