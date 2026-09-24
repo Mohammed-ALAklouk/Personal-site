@@ -8,7 +8,19 @@ requestAnimationFrame(raf);
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    if (href === '#top') {
+      lenis.scrollTo(0);
+      e.preventDefault();
+      return;
+    }
+
+    if (href === '#') {
+      e.preventDefault();
+      return;
+    }
+
+    const target = document.querySelector(href);
     if (!target) return;
     e.preventDefault();
     lenis.scrollTo(target);
