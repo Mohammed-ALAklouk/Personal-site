@@ -359,6 +359,24 @@ header {
 .project.ocean {
     --accent: var(--ocean);
 }
+/* ── intro section styles ──────────────────────────────────── */
+.intro{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+.intro__statement {
+    font-size: clamp(2rem, 1rem + 4.4vw, 5.6rem);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.02;
+    max-width: 22ch;
+    letter-spacing: -0.04em;
+}
+
+.intro__statement em {
+    color: var(--sand);
+}
+
 
 /* ── Background section styles ──────────────────────────────────── */
 .facts {
