@@ -61,3 +61,15 @@ updateClock();
 // Update the clock every 15 seconds 
 setInterval(updateClock, 15000);
 
+const nav = document.querySelector('.nav');
+
+const updateNav = () => {
+  nav.classList.toggle("scrolled", window.scrollY > 40);
+};
+
+// Update the nav on page load
+updateNav();
+
+// Update the nav on scroll
+document.addEventListener('scroll', updateNav);
+
