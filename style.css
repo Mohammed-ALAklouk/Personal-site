@@ -316,16 +316,45 @@ section:focus-visible {
 
 /* ── Hero section styles ─────────────────────────────────────── */
 
-#hero {
-    position: relative;   /* makes hero-content position relative to this section */
-    min-height: 80vh;     /* height for the content to be placed within */
+.hero {
+    padding: calc(var(--space-s) + var(--nav-h)) var(--pad) 0 var(--pad);
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: minmax(0, 1fr)
 }
 
-.hero-content {
-    position: absolute;   
-    left: var(--pad);           
-    bottom: 30%; 
-    max-width: 50%;     
+.hero__ground {
+    padding: 20px 0 24px;
+    border-top: 1px solid var(--line-strong);
+    display: flex;
+    align-items: center;
+}
+
+.hero__tagline {
+    line-height: 1.15;
+    font-size: clamp(1.25rem, 1rem  + 1.5vw,  2rem);
+    letter-spacing: -0.02em;
+    font-weight: var(--font-weight-normal);
+}
+
+.hero__tagline em {
+    color: var(--sand);
+    font-size: 1.12em;
+}
+
+.hero__name {
+    align-self: end;
+    font-size: min(calc((100vw - 2 * var(--pad)) / 5.15), 27vh);
+    font-weight: var(--font-weight-bold);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    margin-bottom: clamp(20px, 4vh, 48px);
+}
+
+.hero__line {
+    display: block;
 }
 
 /* ── Project section styles ──────────────────────────────────── */
