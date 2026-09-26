@@ -245,31 +245,60 @@
                 </ul>
             </section>
     
-            <section class="section" id="background">
+            <section class="section background" >
                 <div class="section__head">
-                    <p class="label">Who I am</p>
+                    <p class="label">Education & toolkit</p>
                     <h2 class="section__title">Background</h2>
                 </div>
-                <dl class="facts">
-                    <dt>Degree</dt>
-                    <dd>BSc Computer Engineering, Gebze Technical University</dd>
+                <dl class="rows">
+                    <div class="row">
+                        <dt>Degree</dt>
+                        <dd>
+                            <p class="row__label">BSc Computer Engineering</p>
+                            <p class="row__sub">Gebze Technical University</p>
+                        </dd>
+                    </div>
+
+                    <div class="row">
+                        <dt>Time line</dt>
+                        <dd class="timeline" data-start="2024-09-01" data-end="2028-07-01">
+                            <div class="timeline__date">
+                                <p class="row__label">Sep 2024</p>
+                                <p class="row__label">Jul 2028<span class="row__sub">expected</span></p>
+                            </div>
+                            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Degree progress">
+                                <div class="progress-bar__fill"></div>
+                            </div>
+                            <p class="timeline__sub">Year <span class="timeline__year"></span> of 4 · <span class="timeline__percent"></span>% complete</p>
+                        </dd>
+                    </div>
                     
-                    <dt>Started University</dt>
-                    <dd>September 2024</dd>
+                    <div class="row">
+                        <dt>GPA</dt>
+                        <dd class="row__big">3.55</dd>
+                    </div>
                     
-                    <dt>Expected graduation date</dt>
-                    <dd>July 2028</dd>
-                    
-                    
-                    <dt>GPA</dt>
-                    <dd>3.55</dd>
-                    
-                    <dt>Languages</dt>
-                    <dd>Arabic - Native, English - Fluent, Turkish - Conversational</dd>
+                    <div class="row">
+                        <dt>Languages</dt>
+                        <dd class="row__langs">
+                            <div>
+                                <p class="row__label">Arabic</p>
+                                <p class="row__sub">Native</p> 
+                            </div>
+                            <div>
+                                <p class="row__label">English</p>
+                                <p class="row__sub">Fluent</p>
+                            </div>
+                            <div>
+                                <p class="row__label">Turkish</p>
+                                <p class="row__sub">Conversational</p>
+                            </div>
+                        </dd>
+                    </div>
                 </dl>
     
                 <div>
-                     <div>
+                    <div>
                         <h3>Shipped with</h3>
                         <h4>Systems</h4>
                         <ul>
@@ -278,7 +307,9 @@
                             <li>raylib</li>
                             <li>CMake</li>
                         </ul>
-            
+                    </div>
+                    
+                    <div>
                         <h4>Web</h4>
                         <ul>
                             <li>HTML</li>

@@ -109,3 +109,29 @@ if (prefersReducedMotion) {
     observer.observe(video);
   });
 }
+
+const progressBar = document.querySelector('.progress-bar');
+const progressBarFill = document.querySelector('.progress-bar__fill');
+const startingDate = document.querySelector('.timeline').getAttribute('data-start');
+const endingDate = document.querySelector('.timeline').getAttribute('data-end');
+const progress = Math.min(Math.max((new Date() - new Date(startingDate)) / (new Date(endingDate) - new Date(startingDate)) * 100, 0), 100);
+
+document.querySelector('.timeline__year').textContent = `${Math.min(Math.floor(progress / 100 * 4) + 1, 4)}`;
+document.querySelector('.timeline__percent').textContent = `${Math.round(progress)}`;
+progressBar.setAttribute('aria-valuenow', `${Math.round(progress)}`);
+
+if (prefersReducedMotion) {
+  progressBarFill.style.width = `${progress}%`;
+} else {
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        progressBarFill.style.width = `${progress}%`;
+        progressObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.25 });
+ 
+  progressObserver.observe(progressBar);
+}
+
