@@ -357,12 +357,33 @@ section:focus-visible {
     display: block;
 }
 
+/* ── intro section styles ──────────────────────────────────── */
+.intro{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+}
+.intro__statement {
+    font-size: clamp(2rem, 1rem + 4.4vw, 5.6rem);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.02;
+    max-width: 22ch;
+    letter-spacing: -0.04em;
+}
+
+.intro__statement em {
+    color: var(--sand);
+}
+
 /* ── Project section styles ──────────────────────────────────── */
 .project {
     padding: var(--space-xl) 0 var(--space-3xl);
     border-bottom: 1px solid var(--line-strong);
 }
 
+#work .project:last-child {
+    border-bottom: none;
+}
 
 .project__head{
     padding: 0 var(--pad) var(--space-l);
@@ -573,25 +594,58 @@ section:focus-visible {
     --accent: var(--ocean);
 }
 
+/* __ Marquee styles ______________________________________________________ */
+.marquee {
+    overflow: hidden;
+    padding: var(--space-m) 0;
 
+    border-bottom: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+}
 
-
-/* ── intro section styles ──────────────────────────────────── */
-.intro{
+.marquee__track {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
-}
-.intro__statement {
-    font-size: clamp(2rem, 1rem + 4.4vw, 5.6rem);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.02;
-    max-width: 22ch;
-    letter-spacing: -0.04em;
+    width: max-content;
+    align-items: center;
+    
+    animation: scroll-left 30s linear infinite;
 }
 
-.intro__statement em {
+.marquee:hover .marquee__track {
+    animation-play-state: paused;
+}
+
+.marquee__track span {
+    flex: 0 0 auto;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-bold);
+
+    letter-spacing: -0.04em;
+    color: transparent;
+
+    -webkit-text-stroke: 1px color-mix(in srgb, var(--fg) 34%, transparent);
+
+    line-height: 1;
+    padding: 0 var(--space-m);
+}
+
+.marquee__track span::after {
+        content: "✺";
+    display: inline-block;
+    margin-left: 0.9em;
+    font-size: 0.4em;
+    vertical-align: middle;
     color: var(--sand);
+    -webkit-text-stroke: 0px;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 
