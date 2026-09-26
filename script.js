@@ -135,3 +135,23 @@ if (prefersReducedMotion) {
   progressObserver.observe(progressBar);
 }
 
+const copyButtons = document.querySelectorAll('.js-copy');
+let timerID = null;
+
+copyButtons.forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    const text = btn.getAttribute('data-copy');
+    try {
+      await navigator.clipboard.writeText(text);
+      btn.textContent = 'Copied!';    
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+      btn.textContent = 'Select & copy';
+    }
+
+    clearTimeout(timerID);
+    timerID = setTimeout(() => {
+      btn.textContent = 'Copy';
+    }, 2000);
+  });
+});
