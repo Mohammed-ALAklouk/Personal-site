@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="grid-bg" aria-hidden="true"></div>
+    <!-- <div class="grid-bg" aria-hidden="true"></div> -->
     
     <a href="#work" class="skip">Skip to work</a>
     <header class="nav">
@@ -65,12 +65,20 @@
                     <h2 class="section__title">Work</h2>
                 </div>
         
-                <div class="project-list">
-                    <div class="project scree">
-                        <div class="project-text">
-                            <h3>Scree</h3>
-                            <p>A falling-sand physics simulator in C++20 and raylib where every pixel is an independent particle which reacts with the materials around it. It runs in the browser via WebAssembly.</p>
-                            <ul>
+                <article class="project scree">
+                    <div class="project__head">
+                        <h3 class="project__title">Scree</h3>
+                        <p class="project__kicker">Falling-sand physics simulator</p>
+                    </div>
+                    
+                    <div class="project__body">
+                        <figure class="media__frame media__frame--square">
+                            <video class="js-video" src="assets/media/scree.mp4" muted loop playsinline preload="metadata" poster="assets/media/scree-poster.webp" aria-label="Sand falling on a pool of lava and turning into glass"></video>
+                        </figure>
+
+                        <div class="project__info">
+                            <p class="project__description">A falling-sand physics simulator in C++20 and raylib where every pixel is an independent particle which reacts with the materials around it. It runs in the browser via WebAssembly.</p>
+                            <ul class="project__features">
                                 <li>30+ materials that spread, burn and dissolve into one another through a tag based reaction system</li>
                                 <li>Materials, reactions and physics are defined in editable JSON, and everything can be hot reloaded</li>
                                 <li>You can create, edit and delete materials in-app</li>
@@ -78,31 +86,39 @@
                                 <li>Bloom lighting for glowing materials</li>
                             </ul>
         
-                            <h4>Tech stack</h4>
-                            <ul>
-                                <li>C++20</li>
-                                <li>raylib</li>
-                                <li>Dear ImGui</li>
-                                <li>nlohmann/json</li>
-                                <li>CMake</li>
-                                <li>Catch2</li>
-                                <li>Emscripten/WASM</li>
-                            </ul>
+                            <div class="project__tech-stack">
+                                <h4 class="project__tech-label label">Tech stack</h4>
+                                <ul class="project__tech-list">
+                                    <li>C++20</li>
+                                    <li>raylib</li>
+                                    <li>Dear ImGui</li>
+                                    <li>nlohmann/json</li>
+                                    <li>CMake</li>
+                                    <li>Catch2</li>
+                                    <li>Emscripten/WASM</li>
+                                </ul>
+                            </div>
         
-                            <div class="project-links">
-                                <a class="btn primary" href="https://mohammed-alaklouk.github.io/Scree/" target="_blank" rel="noopener noreferrer">Play online</a>
-                                <a class="btn" href="https://github.com/Mohammed-ALAklouk/Scree" target="_blank" rel="noopener noreferrer">Visit repo</a>
-                                <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Case study</a>
+                            <div class="project__links">
+                                <a class="btn btn--primary" href="https://mohammed-alaklouk.github.io/Scree/" target="_blank" rel="noopener noreferrer">Play online </a>
+                                <a class="btn" href="https://github.com/Mohammed-ALAklouk/Scree" target="_blank" rel="noopener noreferrer">Source</a>
                             </div>
                         </div>
-                        <img class="project-image" src="assets/media/scree-poster.webp" alt="Scree falling-sand simulator demo: fire, sand and lava reacting on the grid">
                     </div>
-        
-                    <div class="project latch">
-                        <div class="project-text">
-                            <h3>Latch</h3>
-                            <p>A logic-gate sandbox and simulator in C++20, raylib and Dear ImGui. You can place gates on an infinite grid, wire them together and simulate the circuit with one-tick propagation delay per gate.</p>
-                            <ul>
+                </article>
+    
+                <article class="project latch">
+                    <div class="project__head">
+                        <h3 class="project__title">Latch</h3>
+                        <p class="project__kicker">Logic-gate sandbox & simulator</p>
+                    </div>
+                    <div class="project__body">
+                        <figure class="media__frame media__frame--wide">
+                            <img src="assets/media/latch.webp" width="1520" height="855" loading="lazy" alt="Latch desktop app showing a full adder circuit built from XOR and AND gates, with the component palette, sheets and simulation panels">
+                        </figure>
+                        <div class="project__info">
+                            <p class="project__description">A logic-gate sandbox and simulator in C++20, raylib and Dear ImGui. You can place gates on an infinite grid, wire them together and simulate the circuit with one-tick propagation delay per gate.</p>
+                            <ul class="project__features">
                                 <li>Three logic values: LOW, HIGH and UNDEFINED for floating inputs</li>
                                 <li>Nine basic gates: AND, OR, XOR and their complements, NOT, a toggle switch and an LED</li>
                                 <li>Wires are graphs of nodes and segments which react to node and segment deletion</li>
@@ -112,28 +128,37 @@
                                 <li>A headless simulation core inside its own static library tested with Catch2</li>
                             </ul>
         
-                            <h4>Tech stack</h4>
-                            <ul>
-                                <li>C++20</li>
-                                <li>raylib</li>
-                                <li>Dear ImGui</li>
-                                <li>CMake</li>
-                                <li>Catch2</li>
-                            </ul>
+                            <div class="project__tech-stack">
+                                <h4 class="project__tech-label label">Tech stack</h4>
+                                <ul class="project__tech-list">
+                                    <li>C++20</li>
+                                    <li>raylib</li>
+                                    <li>Dear ImGui</li>
+                                    <li>CMake</li>
+                                    <li>Catch2</li>
+                                </ul>
+                            </div>
         
-                            <div class="project-links">
-                                <a class="btn primary" href="https://github.com/Mohammed-ALAklouk/Latch" target="_blank" rel="noopener noreferrer">Visit repo</a>
-                                <a class="btn" href="#" target="_blank" rel="noopener noreferrer">Case study</a>
+                            <div class="project__links">
+                                <a class="btn btn--primary" href="https://github.com/Mohammed-ALAklouk/Latch" target="_blank" rel="noopener noreferrer">Visit repo</a>
                             </div>
                         </div>
-                        <img class="project-image" src="assets/media/latch.webp" alt="Latch desktop app showing a full adder circuit built from XOR and AND gates, with the component palette, sheets and simulation panels">
-                    </div>  
-        
-                    <div class="project ocean">
-                        <div class="project-text">
-                            <h3>The Deep Ocean</h3>
-                            <p>A recreation of <a href="https://neal.fun" target="_blank" rel="noopener noreferrer">neal.fun</a>'s The Deep Sea. A scroll driven descent into the deepest point of the ocean at the bottom of the Challenger Deep at 10,924 m. The site has 128 real sea creatures that fade and blur in and out at their true depths.</p>
-                            <ul>
+                    </div>
+                </article>  
+    
+                <article class="project ocean">
+                    <div class="project__head">
+                        <h3 class="project__title">The Deep Ocean</h3>
+                        <p class="project__kicker">Scroll-driven descent to 10,924 m</p>
+                    </div>
+                    <div class="project__body">
+                        <figure class="media__frame media__frame--wide">
+                             
+                            <video class="js-video" src="assets/media/ocean.mp4" muted loop playsinline preload="metadata" poster="assets/media/ocean-poster.webp" aria-label="The Deep Ocean scroll site: sunset sky over waves with a buoy"></video>
+                        </figure>
+                        <div class="project__info">
+                            <p class="project__description">A recreation of <a class="inline--link" href="https://neal.fun" target="_blank" rel="noopener noreferrer">neal.fun</a>'s The Deep Sea. A scroll driven descent into the deepest point of the ocean at the bottom of the Challenger Deep at 10,924 m. The site has 128 real sea creatures that fade and blur in and out at their true depths.</p>
+                            <ul class="project__features">
                                 <li>Features five ocean zones proportionate to their real depth ranges, with a live depth meter and depth markers at the end of each zone</li>
                                 <li>Creatures are stored in JSON with their depth, name and X position on the screen</li>
                                 <li>A background of bioluminescent particles that move, pulse, die, respawn, and react to scrolling with parallax</li>
@@ -142,25 +167,25 @@
                                 <li>GSAP ScrollTrigger and Lenis smooth scrolling working together, including on touch devices</li>
                             </ul>
         
-                            <h4>Tech stack</h4>
-                            <ul>
-                                <li>HTML, CSS, JavaScript</li>
-                                <li>GSAP + ScrollTrigger</li>
-                                <li>Lenis</li>
-                                <li>Canvas 2D</li>
-                                <li>GitHub Pages</li>
-                            </ul>
+                            <div class="project__tech-stack">
+                                <h4 class="project__tech-label label">Tech stack</h4>
+                                <ul class="project__tech-list">
+                                    <li>HTML, CSS, JavaScript</li>
+                                    <li>GSAP + ScrollTrigger</li>
+                                    <li>Lenis</li>
+                                    <li>Canvas 2D</li>
+                                    <li>GitHub Pages</li>
+                                </ul>
+                            </div>
         
-                            <div class="project-links">
-                                <a class="btn primary" href="https://mohammed-alaklouk.github.io/The-deep-ocean/" target="_blank" rel="noopener noreferrer">Play online</a>
+                            <div class="project__links">
+                                <a class="btn btn--primary" href="https://mohammed-alaklouk.github.io/The-deep-ocean/" target="_blank" rel="noopener noreferrer">Play online</a>
                                 <a class="btn" href="https://github.com/Mohammed-ALAklouk/The-deep-ocean" target="_blank" rel="noopener noreferrer">Visit repo</a>
                                 <a class="btn" href="https://mohammed-alaklouk.github.io/The-deep-ocean/blog/" target="_blank" rel="noopener noreferrer">Case study</a>
                             </div>
                         </div>
-                        <img class="project-image" src="assets/media/ocean-poster.webp" alt="The Deep Ocean scroll site: sunset sky over waves with a buoy">
                     </div>
-                </div>
-        
+                </article>
         
             </section>
             

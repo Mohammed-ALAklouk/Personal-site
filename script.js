@@ -1,4 +1,6 @@
 const lenis = new Lenis({ duration: 0.9, smoothWheel: true, autoRaf: false });
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 
 function raf(time) {
   lenis.raf(time);
@@ -9,12 +11,6 @@ requestAnimationFrame(raf);
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
     const href = link.getAttribute('href');
-    if (href === '#top') {
-      lenis.scrollTo(0);
-      e.preventDefault();
-      return;
-    }
-
     if (href === '#') {
       e.preventDefault();
       return;
@@ -85,3 +81,31 @@ updateNav();
 // Update the nav on scroll
 document.addEventListener('scroll', updateNav);
 
+const videos = document.querySelectorAll('.js-video');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const video = entry.target;
+    if (entry.isIntersecting) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+}, { threshold: 0.25 });
+
+if (prefersReducedMotion) {
+  videos.forEach((video) => {
+    video.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  });
+} else {
+  videos.forEach((video) => {
+    observer.observe(video);
+  });
+}
