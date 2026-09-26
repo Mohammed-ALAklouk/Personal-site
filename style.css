@@ -181,6 +181,7 @@ section:focus-visible {
     display: flex;
     flex-direction: column;
     gap: var(--space-2xs);
+    margin-bottom: var(--space-xl);
     border-bottom: 1px solid var(--line-strong);
     padding-bottom: var(--space-s);
 }
@@ -377,7 +378,7 @@ section:focus-visible {
 
 /* ── Project section styles ──────────────────────────────────── */
 .project {
-    padding: var(--space-xl) 0 var(--space-3xl);
+    padding-bottom: var(--space-3xl);
     border-bottom: 1px solid var(--line-strong);
 }
 
@@ -386,7 +387,11 @@ section:focus-visible {
 }
 
 .project__head{
-    padding: 0 var(--pad) var(--space-l);
+    padding: var(--space-xl) var(--pad) var(--space-l);
+}
+
+.scree .project__head{
+    padding-top: 0;
 }
 
 .project__title {
@@ -648,6 +653,86 @@ section:focus-visible {
     }
 }
 
+/* __ About section styles ______________________________________________________ */
+.about__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: var(--space-m);
+    padding: 0 0 var(--space-xl);
+}
+
+.about__lead {
+    font-size: var(--text-xl);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    font-weight: var(--font-weight-medium);
+
+}
+
+.about__lead em {
+    color: var(--sand);
+}
+
+.about__info{
+    color: var(--fg-2);
+    font-size: var(--text-s);
+    line-height: 1.6;   
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}
+
+.about__principles {
+    border-top: 1px solid var(--line-strong);
+    display: flex;
+}
+
+.about__principles li {
+    padding: var(--space-s) var(--space-s);
+    flex: 1;
+}
+
+.about__principles li + li {
+    border-left: 1px solid var(--line-strong);
+}
+
+.about__principles li:first-child {
+    padding-left: 0;
+}
+
+.principle__title {
+    font-size: var(--text-l);
+    margin-bottom: var(--space-xs);
+    line-height: 1.05;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: -0.035em;
+}
+
+.principle__description {
+    font-size: var(--text-s);
+    line-height: 1.6;
+    color: var(--fg-2);
+}
+
+@media (max-width: 900px) {
+    .about__grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about__principles {
+        flex-direction: column;
+    }
+
+    .about__principles li {
+        padding: var(--space-s) 0;
+    }
+
+    .about__principles li + li {
+        border-left: none;
+        border-top: 1px solid var(--line-strong);
+    }
+}
 
 /* ── Background section styles ──────────────────────────────────── */
 .facts {
