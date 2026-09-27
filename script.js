@@ -10,11 +10,8 @@ requestAnimationFrame(raf);
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
-    const href = link.getAttribute('href');
-    if (href === '#') {
-      e.preventDefault();
-      return;
-    }
+    let href = link.getAttribute('href');
+    if (href === '#') href = '#top';
 
     const target = document.querySelector(href);
     if (!target) return;
@@ -155,3 +152,7 @@ copyButtons.forEach((btn) => {
     }, 2000);
   });
 });
+
+const footerYear = document.querySelector('.js-footer-year');
+const currentYear = new Date().getFullYear();
+footerYear.textContent = currentYear;

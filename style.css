@@ -135,6 +135,14 @@ h1, h2, h3, h4, h5, h6, dl, dd, figure, p {
     padding: 0;
 }
 
+.clock {
+    color: var(--muted);
+}
+
+.clock time {
+    color: var(--fg);
+}
+
 ::selection { background: var(--sand); color: var(--bg); }
 
 :focus-visible {
@@ -253,10 +261,6 @@ section:focus-visible {
     height: 12px;
     background: var(--sand);
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
-}
-
-.nav__clock time {
-    color: var(--fg);
 }
 
 .nav__menu {
@@ -1000,4 +1004,24 @@ section:focus-visible {
 
 .contact__links a:hover {
     color: var(--sand);
+}
+
+/* ── footer section styles ──────────────────────────────────── */
+footer {
+    padding: var(--space-s) var(--pad);
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-m);
+    flex-wrap: wrap
+}
+
+.footer__to0-top {
+    color: var(--muted);
+    transition: color 0.3s;
+}
+
+.footer__to0-top:hover {
+    color: var(--fg);
 }
