@@ -174,7 +174,6 @@ section:focus-visible {
 
 /* __ Section styles ______________________________________________________ */
 .section {
-    position: relative; /* for grid background, remove when the grid doesnt affect the hero */
     padding: var(--space-3xl) var(--pad) 0
 }
 
@@ -195,29 +194,69 @@ section:focus-visible {
 }
 
 /* ── Grid background styles ───────────────────────────────────── */
-.grid-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+.below {
+    position: relative;
+    isolation: isolate;
+    container-type: inline-size;
+    --cols: 12;
+}
 
-  background-image:
-    linear-gradient(to right,  rgba(238, 241, 245, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(238, 241, 245, 0.1) 1px, transparent 1px),
-    linear-gradient(to right,  rgba(238, 241, 245, 0.2) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(238, 241, 245, 0.2) 1px, transparent 1px);
-  background-size:
-    29px 29px,
-    29px 29px,
-    174px 174px,
-    174px 174px;
+.below::before, .below::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    inset: 0;
 
-  --grid-mask: radial-gradient(72% 25% at var(--mx, 50%) var(--my, 50%), #000 0%, rgba(0, 0, 0, 0.55) 48%, transparent 100%);
+    --size: calc((100cqw - 2 * var(--pad)) / var(--cols));
+    background-image:
+        linear-gradient(to right,  var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size:
+        var(--size) var(--size),
+        var(--size) var(--size);
 
-  -webkit-mask-image: var(--grid-mask);
-  mask-image: var(--grid-mask);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+    background-position: var(--pad) 0;
+    background-repeat: repeat;
+}
+
+.below::before {
+    --line-faint: color-mix(in srgb, var(--fg) 7%, transparent);
+    --grid-line: var(--line-faint); 
+
+    mask-image:
+        linear-gradient(to bottom, transparent 0, #000 360px),
+        radial-gradient(ellipse 52% 24% at 86% 26%, #000 0%, transparent 100%),
+        radial-gradient(ellipse 46% 22% at 10% 72%, #000 0%, transparent 100%);
+    mask-size:      100% 100%, 100% 1800px, 100% 1800px;
+    mask-repeat:    no-repeat, repeat-y,    repeat-y;
+    mask-composite: intersect, add,         add;
+}
+
+@media (max-width: 720px) {
+    .below { --cols: 4; }
+
+    .below::before {
+        mask-image:
+            linear-gradient(to bottom, transparent 0, #000 240px),
+            radial-gradient(ellipse 90% 22% at 90% 25%, #000 0%, transparent 100%),
+            radial-gradient(ellipse 90% 22% at 10% 75%, #000 0%, transparent 100%);
+        mask-size: 100% 100%, 100% 1400px, 100% 1400px;
+    }
+}
+
+.below::after {
+    --grid-line: var(--sand);
+    --grid-mask: radial-gradient(circle 240px at var(--mx, -999px) var(--my, -999px), #000 0%, transparent 100%);
+    -webkit-mask-image: var(--grid-mask);
+    mask-image: var(--grid-mask);
+
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.below.is-lit::after {
+    opacity: 0.25;
 }
 
 /* ── Header styles ───────────────────────────────────────────── */

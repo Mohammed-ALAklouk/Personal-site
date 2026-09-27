@@ -22,27 +22,55 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
+/*
+  == Grid background mouse position ==
 
-let clientX = 0, clientY = 0, scroll = 0;
+  Only enable the effect on devices that support hover (desktop devices)
+  Mouse position is only updated a maximum of once per frame
+*/
+if (matchMedia('(hover: hover)').matches) {
+  const below = document.querySelector('.below');
+  let clientX = 0, clientY = 0, mouseUpdateQueued = false;
 
-const updateMousePosition = () => {
-    const mx = clientX;
-    const my = clientY + scroll;
+  // Calculate the mouse position relative to the .below element and update CSS variables
+  const updateMousePosition = () => {
+    const boundingRect = below.getBoundingClientRect(); 
+    const mx = clientX - boundingRect.left;
+    const my = clientY - boundingRect.top;
 
-    document.documentElement.style.setProperty('--mx', `${mx}px`);
-    document.documentElement.style.setProperty('--my', `${my}px`);
-};
+    below.style.setProperty('--mx', `${mx}px`);
+    below.style.setProperty('--my', `${my}px`);
+    mouseUpdateQueued = false;
+  };
 
-document.addEventListener('mousemove', (e) => {
+  const queueMouseUpdate = () => {
+    if (mouseUpdateQueued) return;
+    
+    mouseUpdateQueued = true;
+    requestAnimationFrame(updateMousePosition);
+  };
+
+  below.addEventListener('pointerenter', () => {
+    below.classList.add('is-lit');
+  });
+
+  below.addEventListener('pointerleave', () => {
+    below.classList.remove('is-lit');
+  });
+
+  // Queue a mouse position update on pointermove 
+  below.addEventListener('pointermove', (e) => {
     clientX = e.clientX;
     clientY = e.clientY;
-    updateMousePosition();
-});
+    queueMouseUpdate();
+  });
 
-document.addEventListener('scroll', (e) => {
-    scroll = window.scrollY;
-    updateMousePosition();
-});
+  // Queue a mouse position update on scroll only if the .below element is lit
+  document.addEventListener('scroll', () => {
+    if (!below.classList.contains('is-lit')) return; 
+    queueMouseUpdate();
+  });
+}
 
 const clocks = document.querySelectorAll('.js-clock');
 
