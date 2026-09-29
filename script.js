@@ -35,12 +35,92 @@ if (hasGsap && !prefersReducedMotion) {
   }
 }
 
+const wrapWords = (element) => {
+  const newChildNodes = [];
+  element.childNodes.forEach((node) => {
+    if (node.nodeType === Node.TEXT_NODE) {
+      node.textContent.split(/(\s+)/).forEach(part => {
+        if (part.trim() !== '') {
+          const span = document.createElement('span');
+          span.classList.add('word');
+          span.textContent = part;
+          newChildNodes.push(span);
+        }
+        else {
+          const textNode = document.createTextNode(part);
+          newChildNodes.push(textNode);
+        }
+      }); 
+    }
+    else if (node.nodeType === Node.ELEMENT_NODE) {
+      node.replaceChildren(...wrapWords(node));
+      newChildNodes.push(node);
+    }
+    else {
+      newChildNodes.push(node);
+    }
+  });
+
+  return newChildNodes;
+}
+
 if (animate) {
   ScrollTrigger.batch("[data-reveal]", {
     start: "top 88%",
     once: true,
     onEnter: (els) =>
       gsap.to(els, { opacity: 1, y: 0, duration: 1.1, ease: "expo.out", stagger: 0.08, overwrite: true }),
+  });
+
+  const introStatement = document.querySelector('.intro__statement');
+  const introStatementText = introStatement.textContent.trim();
+  introStatement.replaceChildren(...wrapWords(introStatement));
+  introStatement.setAttribute('aria-label', introStatementText);
+
+  gsap.to(introStatement.querySelectorAll('.word'), {
+    opacity: 1,
+    stagger: 0.1,
+    ease: "none",
+    scrollTrigger: { trigger: introStatement, start: "top 80%", end: "bottom 45%", scrub: true },
+  });
+
+  document.querySelectorAll('.media__frame').forEach((frame) => {
+    gsap.fromTo(frame, 
+      {
+        clipPath: "inset(12% 6% 12% 6% round var(--radius))",
+      }, 
+      {
+        clipPath: "inset(0% 0% 0% 0% round var(--radius))",
+        ease: "expo.out",
+        duration: 1.6,
+        scrollTrigger: { trigger: frame, start: "top 85%", once: true,  },
+        onComplete: () => { gsap.set(frame, { clearProps: "clipPath" })  }
+      }
+    );
+
+    const inner = frame.querySelector('video, img');
+    gsap.fromTo(inner, 
+      {
+        scale: 1.12,
+      }, 
+      {
+        scale: 1,
+        ease: "none",
+        scrollTrigger: { trigger: frame, start: "top bottom", end: "bottom top", scrub: true },
+      }
+    );
+  });
+
+  gsap.to(document.querySelector('.hero__name'), 
+    {
+      opacity: 0.3,
+      ease: "none",
+      scrollTrigger: { trigger: '.hero', start: "top top", end: "bottom top", scrub: true },
+    }
+  );
+
+  document.fonts.ready.then(() => {
+    ScrollTrigger.refresh();
   });
 }
 
@@ -59,6 +139,33 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     target.focus({ preventScroll: true });
   });
 });
+
+
+const marqueeTrack = document.querySelector('.marquee__track');
+
+if (marqueeTrack) {
+  let lastScrollY = window.scrollY;
+  let scrollDirection = 'normal';
+  document.addEventListener('scroll', () => {
+    const [marqueeAnimation] = marqueeTrack.getAnimations();
+    if (!marqueeAnimation) {
+      lastScrollY = window.scrollY;
+      return;
+    }
+
+    if (window.scrollY === lastScrollY) return;
+    const currentScrollDirection = window.scrollY > lastScrollY ? 'normal' : 'reverse';
+    lastScrollY = window.scrollY;
+
+    if (currentScrollDirection === scrollDirection) return;
+
+    scrollDirection = currentScrollDirection;
+
+    marqueeAnimation.effect.updateTiming({ direction: scrollDirection }); 
+    const duration = marqueeAnimation.effect.getComputedTiming().duration;
+    marqueeAnimation.currentTime = duration - (marqueeAnimation.currentTime % duration); 
+  });
+}
 
 /*
   == Grid background mouse position ==
