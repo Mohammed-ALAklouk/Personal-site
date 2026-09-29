@@ -1061,6 +1061,15 @@ footer {
     transition: color 0.3s;
 }
 
-.footer__to0-top:hover {
+.footer__to-top:hover {
     color: var(--fg);
+}
+
+/* ── Motion styles ───────────────────────────────────────────── */
+
+/* Elements with entrance animations */
+/* js-anim is set by js so the entrance animations only run when js and GSAP are available */
+.js-anim [data-reveal] { 
+    opacity: 0; 
+    transform: translateY(28px); 
 }

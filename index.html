@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <a href="#work" class="skip">Skip to work</a>
@@ -60,13 +65,13 @@
             <section class="section" id="work">
                 <div class="section__head">
                     <p class="label">Selected projects</p>
-                    <h2 class="section__title">Work</h2>
+                    <h2 class="section__title" data-reveal>Work</h2>
                 </div>
         
                 <article class="project scree">
                     <div class="project__head">
-                        <h3 class="project__title">Scree</h3>
-                        <p class="project__kicker">Falling-sand physics simulator</p>
+                        <h3 class="project__title" data-reveal>Scree</h3>
+                        <p class="project__kicker" data-reveal>Falling-sand physics simulator</p>
                     </div>
                     
                     <div class="project__body">
@@ -75,8 +80,8 @@
                         </figure>
 
                         <div class="project__info">
-                            <p class="project__description">A falling-sand physics simulator in C++20 and raylib where every pixel is an independent particle which reacts with the materials around it. It runs in the browser via WebAssembly.</p>
-                            <ul class="project__features">
+                            <p class="project__description" data-reveal>A falling-sand physics simulator in C++20 and raylib where every pixel is an independent particle which reacts with the materials around it. It runs in the browser via WebAssembly.</p>
+                            <ul class="project__features" data-reveal>
                                 <li>30+ materials that spread, burn and dissolve into one another through a tag based reaction system</li>
                                 <li>Materials, reactions and physics are defined in editable JSON, and everything can be hot reloaded</li>
                                 <li>You can create, edit and delete materials in-app</li>
@@ -84,7 +89,7 @@
                                 <li>Bloom lighting for glowing materials</li>
                             </ul>
         
-                            <div class="project__tech-stack">
+                            <div class="project__tech-stack" data-reveal>
                                 <h4 class="project__tech-label label">Tech stack</h4>
                                 <ul class="project__tech-list">
                                     <li>C++20</li>
@@ -97,7 +102,7 @@
                                 </ul>
                             </div>
         
-                            <div class="project__links">
+                            <div class="project__links" data-reveal>
                                 <a class="btn btn--primary" href="https://mohammed-alaklouk.github.io/Scree/" target="_blank" rel="noopener noreferrer">Play online </a>
                                 <a class="btn" href="https://github.com/Mohammed-ALAklouk/Scree" target="_blank" rel="noopener noreferrer">Source</a>
                             </div>
@@ -107,16 +112,16 @@
     
                 <article class="project latch">
                     <div class="project__head">
-                        <h3 class="project__title">Latch</h3>
-                        <p class="project__kicker">Logic-gate sandbox & simulator</p>
+                        <h3 class="project__title" data-reveal>Latch</h3>
+                        <p class="project__kicker" data-reveal>Logic-gate sandbox & simulator</p>
                     </div>
                     <div class="project__body">
                         <figure class="media__frame media__frame--wide">
                             <img src="assets/media/latch.webp" width="1520" height="855" loading="lazy" alt="Latch desktop app showing a full adder circuit built from XOR and AND gates, with the component palette, sheets and simulation panels">
                         </figure>
                         <div class="project__info">
-                            <p class="project__description">A logic-gate sandbox and simulator in C++20, raylib and Dear ImGui. You can place gates on an infinite grid, wire them together and simulate the circuit with one-tick propagation delay per gate.</p>
-                            <ul class="project__features">
+                            <p class="project__description" data-reveal>A logic-gate sandbox and simulator in C++20, raylib and Dear ImGui. You can place gates on an infinite grid, wire them together and simulate the circuit with one-tick propagation delay per gate.</p>
+                            <ul class="project__features" data-reveal>
                                 <li>Three logic values: LOW, HIGH and UNDEFINED for floating inputs</li>
                                 <li>Nine basic gates: AND, OR, XOR and their complements, NOT, a toggle switch and an LED</li>
                                 <li>Wires are graphs of nodes and segments which react to node and segment deletion</li>
@@ -126,7 +131,7 @@
                                 <li>A headless simulation core inside its own static library tested with Catch2</li>
                             </ul>
         
-                            <div class="project__tech-stack">
+                            <div class="project__tech-stack" data-reveal>
                                 <h4 class="project__tech-label label">Tech stack</h4>
                                 <ul class="project__tech-list">
                                     <li>C++20</li>
@@ -137,7 +142,7 @@
                                 </ul>
                             </div>
         
-                            <div class="project__links">
+                            <div class="project__links" data-reveal>
                                 <a class="btn btn--primary" href="https://github.com/Mohammed-ALAklouk/Latch" target="_blank" rel="noopener noreferrer">Visit repo</a>
                             </div>
                         </div>
@@ -146,8 +151,8 @@
     
                 <article class="project ocean">
                     <div class="project__head">
-                        <h3 class="project__title">The Deep Ocean</h3>
-                        <p class="project__kicker">Scroll-driven descent to 10,924 m</p>
+                        <h3 class="project__title" data-reveal>The Deep Ocean</h3>
+                        <p class="project__kicker" data-reveal>Scroll-driven descent to 10,924 m</p>
                     </div>
                     <div class="project__body">
                         <figure class="media__frame media__frame--wide">
@@ -155,8 +160,8 @@
                             <video class="js-video" src="assets/media/ocean.mp4" muted loop playsinline preload="metadata" poster="assets/media/ocean-poster.webp" aria-label="The Deep Ocean scroll site: sunset sky over waves with a buoy"></video>
                         </figure>
                         <div class="project__info">
-                            <p class="project__description">A recreation of <a class="inline--link" href="https://neal.fun" target="_blank" rel="noopener noreferrer">neal.fun</a>'s The Deep Sea. A scroll driven descent into the deepest point of the ocean at the bottom of the Challenger Deep at 10,924 m. The site has 128 real sea creatures that fade and blur in and out at their true depths.</p>
-                            <ul class="project__features">
+                            <p class="project__description" data-reveal>A recreation of <a class="inline--link" href="https://neal.fun" target="_blank" rel="noopener noreferrer">neal.fun</a>'s The Deep Sea. A scroll driven descent into the deepest point of the ocean at the bottom of the Challenger Deep at 10,924 m. The site has 128 real sea creatures that fade and blur in and out at their true depths.</p>
+                            <ul class="project__features" data-reveal>
                                 <li>Features five ocean zones proportionate to their real depth ranges, with a live depth meter and depth markers at the end of each zone</li>
                                 <li>Creatures are stored in JSON with their depth, name and X position on the screen</li>
                                 <li>A background of bioluminescent particles that move, pulse, die, respawn, and react to scrolling with parallax</li>
@@ -165,7 +170,7 @@
                                 <li>GSAP ScrollTrigger and Lenis smooth scrolling working together, including on touch devices</li>
                             </ul>
         
-                            <div class="project__tech-stack">
+                            <div class="project__tech-stack" data-reveal>
                                 <h4 class="project__tech-label label">Tech stack</h4>
                                 <ul class="project__tech-list">
                                     <li>HTML, CSS, JavaScript</li>
@@ -176,7 +181,7 @@
                                 </ul>
                             </div>
         
-                            <div class="project__links">
+                            <div class="project__links" data-reveal>
                                 <a class="btn btn--primary" href="https://mohammed-alaklouk.github.io/The-deep-ocean/" target="_blank" rel="noopener noreferrer">Play online</a>
                                 <a class="btn" href="https://github.com/Mohammed-ALAklouk/The-deep-ocean" target="_blank" rel="noopener noreferrer">Visit repo</a>
                                 <a class="btn" href="https://mohammed-alaklouk.github.io/The-deep-ocean/blog/" target="_blank" rel="noopener noreferrer">Case study</a>
@@ -214,13 +219,13 @@
             <section class="section" id="about">
                 <div class="section__head">
                     <p class="label">Who I am</p>
-                    <h2 class="section__title">About</h2>
+                    <h2 class="section__title" data-reveal>About</h2>
                 </div>
 
                 <div class="about__grid">
-                    <p class="about__lead">I'm a third year computer engineering student at Gebze Technical University. I like to deeply understand how things work, which often leads me to <em>building interactive simulations</em> for them.</p>
+                    <p class="about__lead" data-reveal>I'm a third year computer engineering student at Gebze Technical University. I like to deeply understand how things work, which often leads me to <em>building interactive simulations</em> for them.</p>
                     
-                    <div class="about__info">
+                    <div class="about__info" data-reveal>
                         <p>I mainly work in C++, and I always prioritize system design. I structure my projects to be flexible and easy to extend as they grow, not just to make them work once. I design systems to be reliable, extendable and efficient.</p>
                 
                         <p>I also enjoy tinkering with interactive web technologies like GSAP, Lenis and Three.js to build sites that introduce new ways to interact with a page: scroll-driven animations and interactions, as well as 3D.</p>
@@ -228,15 +233,15 @@
                 </div>
 
                 <ul class="about__principles">
-                    <li>
+                    <li data-reveal>
                         <h3 class="principle__title">Systems first</h3>
                         <p class="principle__description">I always prioritize system design. I structure my projects to be flexible and easy to extend as they grow, not just to make them work once.</p>
                     </li>
-                    <li>
+                    <li data-reveal>
                         <h3 class="principle__title">Data, not code</h3>
                         <p class="principle__description">State lives in plain JSON rather than serialized blobs: easy for users to edit and for the program to read. In Scree, materials are pure data, simple enough that new ones can be generated with AI. Latch is next.</p>
                     </li>
-                    <li>
+                    <li data-reveal>
                         <h3 class="principle__title">Rebuild to understand</h3>
                         <p class="principle__description">From particle physics to logic gates to the ocean floor: the best way to understand a thing is to simulate it.</p>
                     </li>
@@ -246,10 +251,10 @@
             <section class="section background" >
                 <div class="section__head">
                     <p class="label">Education & toolkit</p>
-                    <h2 class="section__title">Background</h2>
+                    <h2 class="section__title" data-reveal>Background</h2>
                 </div>
                 <dl class="rows">
-                    <div class="row">
+                    <div class="row" data-reveal>
                         <dt>Degree</dt>
                         <dd>
                             <p class="row__label">BSc Computer Engineering</p>
@@ -257,7 +262,7 @@
                         </dd>
                     </div>
 
-                    <div class="row">
+                    <div class="row" data-reveal>
                         <dt>Time line</dt>
                         <dd class="timeline" data-start="2024-09-01" data-end="2028-07-01">
                             <div class="timeline__date">
@@ -271,12 +276,12 @@
                         </dd>
                     </div>
                     
-                    <div class="row">
+                    <div class="row" data-reveal>
                         <dt>GPA</dt>
                         <dd class="row__big">3.55</dd>
                     </div>
                     
-                    <div class="row">
+                    <div class="row" data-reveal>
                         <dt>Languages</dt>
                         <dd class="row__langs">
                             <div>
@@ -296,7 +301,7 @@
                 </dl>
     
                 <div class="skills">
-                    <div class="skills__column">
+                    <div class="skills__column" data-reveal>
                         <div class="skills__head">
                             <h3 class="skills__title">Shipped with</h3>
                             <p class="skills__sub">Systems</p>
@@ -310,7 +315,7 @@
                         </ul>
                     </div>
                     
-                    <div class="skills__column">
+                    <div class="skills__column" data-reveal>
                         <div class="skills__head">
                             <h3 class="skills__title">Shipped with</h3>
                             <p class="skills__sub">Web</p>
@@ -325,7 +330,7 @@
                         </ul>
                     </div>
             
-                    <div class="skills__column">
+                    <div class="skills__column" data-reveal>
                         <div class="skills__head">
                             <h3 class="skills__title">Familiar with</h3>
                         </div>
@@ -343,15 +348,15 @@
             
             <section class="section" id="contact">
                 <p class="label">Contact</p>
-                <h2 class="contact__title">Say <span class="contact__hello">Hello.</span></h2>
+                <h2 class="contact__title" data-reveal>Say <span class="contact__hello">Hello.</span></h2>
                 <p class="contact__sub">Open to simulation, systems and interactive web work, or just chatting about interesting technologies.</p>
         
-                <div class="contact__email">
+                <div class="contact__email" data-reveal>
                     <a class="contact__address" href="mailto:moha.alaklouk@gmail.com">moha.alaklouk@gmail.com</a>
                     <button class="contact__btn js-copy" data-copy="moha.alaklouk@gmail.com">Copy</button>
                 </div>
                 
-                <div class="contact__links">
+                <div class="contact__links" data-reveal>
                     <a class="link" href="https://www.linkedin.com/in/mohammed-alaklouk-91835b263/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
                     <a class="link" href="https://github.com/Mohammed-ALAklouk" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a>
                 </div>
@@ -367,6 +372,4 @@
     </footer>
 
 </body>
-<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
-<script src="script.js"></script>
 </html>

@@ -1,15 +1,53 @@
-const lenis = new Lenis({ duration: 0.9, smoothWheel: true, autoRaf: false });
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+let lenis = null;
+let animate = false;
+const hasLenis = typeof Lenis !== 'undefined';
+const hasGsap = typeof gsap !== 'undefined';
+const hasScrollTrigger = typeof ScrollTrigger !== 'undefined';
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
+if (hasLenis && !prefersReducedMotion) {
+  lenis = new Lenis({ duration: 0.9, smoothWheel: true });
+
+  if (!hasGsap) {
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+    requestAnimationFrame(raf);
+  }
 }
-requestAnimationFrame(raf);
+
+if (hasGsap && !prefersReducedMotion) {
+  if (hasScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    animate = true;
+    document.documentElement.classList.add('js-anim');
+    
+    if (lenis) {
+      lenis.on('scroll', ScrollTrigger.update);
+    }
+  }
+
+  if (lenis) {
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+}
+
+if (animate) {
+  ScrollTrigger.batch("[data-reveal]", {
+    start: "top 88%",
+    once: true,
+    onEnter: (els) =>
+      gsap.to(els, { opacity: 1, y: 0, duration: 1.1, ease: "expo.out", stagger: 0.08, overwrite: true }),
+  });
+}
+
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
+    if (!lenis) return;
     let href = link.getAttribute('href');
     if (href === '#') href = '#top';
 
