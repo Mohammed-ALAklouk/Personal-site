@@ -335,10 +335,11 @@ section:focus-visible {
     transform-origin: right;
     transition: transform 0.5s var(--ease-out);
 }
-
-.nav__link:hover:after {
-    transform: scaleX(1);
-    transform-origin: left;
+@media (hover: hover) {
+    .nav__link:hover:after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
 }
 
 @media (max-width: 720px) {
@@ -495,13 +496,14 @@ section:focus-visible {
    object-fit: contain;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .project__body {
         grid-template-columns: minmax(0, 1fr);
     }
 
     .media__frame {
         position: relative;
+        max-height: 75svh;
         top: 0;
     }
 }
