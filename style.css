@@ -316,6 +316,8 @@ section:focus-visible {
 
 .nav__link {
     font-weight: var(--font-weight-medium);
+    display: inline-flex; 
+    align-items: center;
     position: relative;
 }
 
@@ -353,6 +355,11 @@ section:focus-visible {
     .nav__brand {
         font-size: 0;
         gap: 0;
+        min-width: 44px; 
+        min-height: 44px;
+    }
+    .nav__link {
+        min-height: 36px;
     }
 }
 
@@ -1053,6 +1060,9 @@ footer {
 .footer__to-top {
     color: var(--muted);
     transition: color 0.3s;
+    display: inline-flex; 
+    align-items: center;
+    min-height: 44px;
 }
 
 .footer__to-top:hover {
