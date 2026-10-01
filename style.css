@@ -981,6 +981,7 @@ section:focus-visible {
     align-items: center;
     gap: var(--space-m);
     padding: var(--space-s) 0;
+    flex-wrap: wrap;
 }
 
 .contact__address {
@@ -1049,7 +1050,7 @@ footer {
     flex-wrap: wrap
 }
 
-.footer__to0-top {
+.footer__to-top {
     color: var(--muted);
     transition: color 0.3s;
 }
