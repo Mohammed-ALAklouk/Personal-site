@@ -1,5 +1,32 @@
+/* Self-hosted fonts, Latin subset only, from Google Fonts */
+/* Bricolage Grotesque and JetBrains Mono are variable fonts, so one file covers the whole weight range */
+@font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("assets/fonts/bricolage-grotesque.woff2") format("woff2");
+    font-weight: 200 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Only the italic is used, <em> is italic by default */
+@font-face {
+    font-family: "Instrument Serif";
+    src: url("assets/fonts/instrument-serif-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    src: url("assets/fonts/jetbrains-mono.woff2") format("woff2");
+    font-weight: 400 500;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-    
+
     --bg: #0b0b0a;
     --bg-2: #121211;
     --bg-3: #1a1a18;
