@@ -9,12 +9,14 @@
 }
 
 /* Only the italic is used, <em> is italic by default */
+/* optional, not swap: the Georgia fallback is wider and wraps the hero tagline onto two lines on phones, */
+/* so swapping in the real font later shifts the hero name. optional never swaps after the first paint */
 @font-face {
     font-family: "Instrument Serif";
     src: url("assets/fonts/instrument-serif-italic.woff2") format("woff2");
     font-weight: 400;
     font-style: italic;
-    font-display: swap;
+    font-display: optional;
 }
 
 @font-face {

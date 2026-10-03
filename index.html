@@ -67,7 +67,7 @@
 <body>
     <a href="#work" class="skip">Skip to work</a>
     <header class="nav">
-        <a href="#top" class="nav__brand" aria-label="Mohammed Alaklouk, back to top">
+        <a href="#top" class="nav__brand" aria-label="M. Alaklouk, back to top">
             <span class="nav__mark" aria-hidden="true"></span>
             M. Alaklouk
         </a>
@@ -165,7 +165,11 @@
                     </div>
                     <div class="project__body">
                         <figure class="media__frame media__frame--wide">
-                            <img src="assets/media/latch.webp" width="1520" height="855" loading="lazy" alt="Latch desktop app showing a full adder circuit built from XOR and AND gates, with the component palette, sheets and simulation panels">
+                            <!-- sizes matches the layout: full width minus page padding when the project body is one column (<=1024px), the 7fr column of the two-column grid above that -->
+                            <img src="assets/media/latch.webp"
+                                 srcset="assets/media/latch-720.webp 720w, assets/media/latch-960.webp 960w, assets/media/latch-1200.webp 1200w, assets/media/latch.webp 1520w"
+                                 sizes="(max-width: 1024px) calc(100vw - 32px), calc(58vw - 80px)"
+                                 width="1520" height="855" loading="lazy" alt="Latch desktop app showing a full adder circuit built from XOR and AND gates, with the component palette, sheets and simulation panels">
                         </figure>
                         <div class="project__info">
                             <p class="project__description" data-reveal>A logic-gate sandbox and simulator in C++20, raylib and Dear ImGui. You can place gates on an infinite grid, wire them together and simulate the circuit with one-tick propagation delay per gate.</p>
