@@ -30,8 +30,7 @@
 :root {
 
     --bg: #0b0b0a;
-    --bg-2: #121211;
-    --bg-3: #1a1a18;
+    --bg-2: #1a1a18;
     --fg: #ecebe4;
     --fg-2: #bdbbb3;
     --muted: #8f8d85;
@@ -85,8 +84,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
 
-    --radius-s: 4px; 
-    --radius-m: 8px;
+    --radius-s: 4px;
     --radius: 14px;
     --radius-pill: 1000px;
 }
@@ -334,10 +332,6 @@ section:focus-visible {
 }
 
 .nav__links {
-    
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     align-items: center;
     gap: var(--gap);
@@ -572,7 +566,6 @@ section:focus-visible {
     width: var(--size);
     height: var(--size);
 
-    background: none;
     border: 2px solid var(--accent);
     border-radius: 50%;
 }
@@ -863,7 +856,7 @@ section:focus-visible {
 }
 
 .progress-bar {
-    background-color: var(--bg-3);
+    background-color: var(--bg-2);
     height: var(--space-xs);
     border: 1px solid var(--line);
     border-radius: var(--radius-pill);
