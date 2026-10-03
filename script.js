@@ -309,19 +309,24 @@ const copyButtons = document.querySelectorAll('.js-copy');
 let timerID = null;
 
 copyButtons.forEach((btn) => {
+  const status = btn.parentElement.querySelector('.js-copy-status');
+
   btn.addEventListener('click', async () => {
     const text = btn.getAttribute('data-copy');
     try {
       await navigator.clipboard.writeText(text);
-      btn.textContent = 'Copied!';    
+      btn.textContent = 'Copied!';
+      status.textContent = 'Email address copied';
     } catch (err) {
       console.error('Failed to copy text: ', err);
       btn.textContent = 'Select & copy';
+      status.textContent = "Couldn't copy, select the email address to copy it";
     }
 
     clearTimeout(timerID);
     timerID = setTimeout(() => {
       btn.textContent = 'Copy';
+      status.textContent = '';
     }, 2000);
   });
 });
